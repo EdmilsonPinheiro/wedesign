@@ -9,8 +9,6 @@ document.getElementById("sliding-header-menu-close-button").onclick = function (
   document.getElementById("sliding-header-menu-outer").style.right = "-320px";
 };
 
-
-
 // About us Tab
 
 var aboutUs = {
@@ -61,28 +59,43 @@ var our_services = [
   
 ];
 
-//service-next
-//service-previus
-//service-title
-//service-text
+var servico_atual = 0;
 
-/* var servico_atual = 0;
+document.getElementById("service-previous").onclick = function (){
 
-document.getElementById("service-previus").onclick = function (){
+  if (servico_atual == 0) {
+    var servico_anterior = our_services.length -1;
+  } else{
+    var servico_anterior = servico_atual -1;
+  }
+document.getElementById("service-title").innerHTML = our_services[servico_anterior].title;
+document.getElementById("service-text").innerHTML = our_services[servico_anterior].text;
 
-}; */
+servico_atual = servico_anterior;
 
+}; 
 
+var servico_atual = 0;
 
+document.getElementById("service-next").onclick = function (){
 
+  if (servico_atual == our_services.length -1) {
+    var servico_seguinte = 0;
+  } else{
+    var servico_seguinte= servico_atual +1;
+  }
+document.getElementById("service-title").innerHTML = our_services[servico_seguinte].title;
+document.getElementById("service-text").innerHTML = our_services[servico_seguinte].text;
 
+servico_atual = servico_seguinte;
 
-
-
+}; 
 
 // Data Footer
 
-
+var ano_atual = new Date;
+ano_atual = ano_atual.getFullYear();
+document.getElementById("current_year").innerHTML = ano_atual;
 
   
    
